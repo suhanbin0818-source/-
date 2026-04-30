@@ -18,10 +18,10 @@
         </span>
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="#products">租赁品类</a>
-        <a href="#service">服务流程</a>
         <a href="#pricing">计费方式</a>
         <a href="#contact">快速询价</a>
+        <a href="#products">租赁品类</a>
+        <a href="#service">服务流程</a>
       </nav>
       <a class="header-call" href="tel:13913931333" aria-label="拨打服务热线">13913931333</a>
     </header>
@@ -57,11 +57,78 @@
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="服务承诺">
-        <span>出库清点</span>
-        <span>装车加固</span>
-        <span>损耗明细</span>
-        <span>退场回收</span>
+      <section class="section pricing" id="pricing">
+        <div class="quote-panel">
+          <div>
+            <p class="eyebrow">计费方式</p>
+            <h2>租期越清楚，报价越准确</h2>
+            <p>页面内可先做粗略估算，最终报价会结合距离、规格、库存和现场装卸条件确认。</p>
+          </div>
+          <div class="calc" aria-label="租赁费用估算器">
+            <label>
+              扣件数量
+              <input id="couplers" type="number" min="0" value="5000" inputmode="numeric">
+            </label>
+            <label>
+              钢管米数
+              <input id="pipes" type="number" min="0" value="12000" inputmode="numeric">
+            </label>
+            <label>
+              租赁天数
+              <input id="days" type="number" min="1" value="30" inputmode="numeric">
+            </label>
+            <output id="estimate" for="couplers pipes days">约 ¥0</output>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-copy">
+          <p class="eyebrow">快速询价</p>
+          <h2>把材料清单发来，当天给方案</h2>
+          <p>适合项目开工前备料、临时补货和退场回收对账。填写后可直接生成一段询价信息。</p>
+          <address>
+            服务热线：<a href="tel:13913931333">13913931333</a><br>
+            地址：南京好装饰架业宜和钢管租赁中心<br>
+            江苏省南京市雨花台区黑墩路与鄂儿岗路交叉口东南 500 米
+          </address>
+          <div class="map-links" aria-label="地图导航">
+            <a href="baidumap://map/navi?location=31.90037028355461,118.68527725338933&coord_type=gcj02&type=BLK&src=yihe-rental">百度地图导航</a>
+            <a id="amapNav" href="iosamap://path?sourceApplication=yihe-rental&dev=0&t=0&did=B0JBP966P2&dlat=31.90037028355461&dlon=118.68527725338933&dname=%E5%8D%97%E4%BA%AC%E5%A5%BD%E8%A3%85%E9%A5%B0%E6%9E%B6%E4%B8%9A%E5%AE%9C%E5%92%8C%E9%92%A2%E7%AE%A1%E7%A7%9F%E8%B5%81%E4%B8%AD%E5%BF%83">高德地图导航</a>
+          </div>
+          <div class="map-preview" aria-label="宜和租赁位置地图">
+            <iframe
+              title="南京好装饰架业宜和钢管租赁中心地图"
+              src="https://www.amap.com/?p=B0JBP966P2,31.90037028355461,118.68527725338933,%E5%8D%97%E4%BA%AC%E5%A5%BD%E8%A3%85%E9%A5%B0%E6%9E%B6%E4%B8%9A%E5%AE%9C%E5%92%8C%E9%92%A2%E7%AE%A1%E7%A7%9F%E8%B5%81%E4%B8%AD%E5%BF%83,%E9%BB%91%E5%A2%A9%E8%B7%AF%E4%B8%8E%E9%84%82%E5%84%BF%E5%B2%97%E8%B7%AF%E4%BA%A4%E5%8F%89%E5%8F%A3%E4%B8%9C%E5%8D%97500%E7%B1%B3"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <form class="contact-form" id="quoteForm">
+          <label>
+            项目名称
+            <input name="project" placeholder="例如：滨河路商业楼外架" required>
+          </label>
+          <label>
+            所在区域
+            <input name="area" placeholder="例如：浦东新区 / 城东工地" required>
+          </label>
+          <label>
+            预计租期
+            <select name="period">
+              <option>15天以内</option>
+              <option selected>15-45天</option>
+              <option>45-90天</option>
+              <option>90天以上</option>
+            </select>
+          </label>
+          <label>
+            材料需求
+            <textarea name="materials" rows="4" placeholder="例如：6米钢管2000根，十字扣件8000只，旋转扣件1000只"></textarea>
+          </label>
+          <button class="button primary" type="submit">发送询价邮件</button>
+          <p class="form-result" id="formResult" role="status" aria-live="polite"></p>
+        </form>
       </section>
 
       <section class="section products" id="products">
@@ -125,73 +192,6 @@
             <p>回收复点，按实际租期和损耗明细结算，账目透明。</p>
           </li>
         </ol>
-      </section>
-
-      <section class="section pricing" id="pricing">
-        <div class="quote-panel">
-          <div>
-            <p class="eyebrow">计费方式</p>
-            <h2>租期越清楚，报价越准确</h2>
-            <p>页面内可先做粗略估算，最终报价会结合距离、规格、库存和现场装卸条件确认。</p>
-          </div>
-          <div class="calc" aria-label="租赁费用估算器">
-            <label>
-              扣件数量
-              <input id="couplers" type="number" min="0" value="5000" inputmode="numeric">
-            </label>
-            <label>
-              钢管米数
-              <input id="pipes" type="number" min="0" value="12000" inputmode="numeric">
-            </label>
-            <label>
-              租赁天数
-              <input id="days" type="number" min="1" value="30" inputmode="numeric">
-            </label>
-            <output id="estimate" for="couplers pipes days">约 ¥0</output>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact" id="contact">
-        <div class="contact-copy">
-          <p class="eyebrow">快速询价</p>
-          <h2>把材料清单发来，当天给方案</h2>
-          <p>适合项目开工前备料、临时补货和退场回收对账。填写后可直接生成一段询价信息。</p>
-          <address>
-            服务热线：<a href="tel:13913931333">13913931333</a><br>
-            地址：南京好装饰架业宜和钢管租赁中心<br>
-            江苏省南京市雨花台区黑墩路与鄂儿岗路交叉口东南 500 米
-          </address>
-          <div class="map-links" aria-label="地图导航">
-            <a href="baidumap://map/navi?location=31.90037028355461,118.68527725338933&coord_type=gcj02&type=BLK&src=yihe-rental">百度地图导航</a>
-            <a id="amapNav" href="iosamap://path?sourceApplication=yihe-rental&dev=0&t=0&did=B0JBP966P2&dlat=31.90037028355461&dlon=118.68527725338933&dname=%E5%8D%97%E4%BA%AC%E5%A5%BD%E8%A3%85%E9%A5%B0%E6%9E%B6%E4%B8%9A%E5%AE%9C%E5%92%8C%E9%92%A2%E7%AE%A1%E7%A7%9F%E8%B5%81%E4%B8%AD%E5%BF%83">高德地图导航</a>
-          </div>
-        </div>
-        <form class="contact-form" id="quoteForm">
-          <label>
-            项目名称
-            <input name="project" placeholder="例如：滨河路商业楼外架" required>
-          </label>
-          <label>
-            所在区域
-            <input name="area" placeholder="例如：浦东新区 / 城东工地" required>
-          </label>
-          <label>
-            预计租期
-            <select name="period">
-              <option>15天以内</option>
-              <option selected>15-45天</option>
-              <option>45-90天</option>
-              <option>90天以上</option>
-            </select>
-          </label>
-          <label>
-            材料需求
-            <textarea name="materials" rows="4" placeholder="例如：6米钢管2000根，十字扣件8000只，旋转扣件1000只"></textarea>
-          </label>
-          <button class="button primary" type="submit">发送询价邮件</button>
-          <p class="form-result" id="formResult" role="status" aria-live="polite"></p>
-        </form>
       </section>
     </main>
 
