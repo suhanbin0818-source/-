@@ -5,6 +5,8 @@ const pipes = document.querySelector("#pipes");
 const days = document.querySelector("#days");
 const form = document.querySelector("#quoteForm");
 const formResult = document.querySelector("#formResult");
+const amapNav = document.querySelector("#amapNav");
+const amapKeyword = encodeURIComponent("南京好装饰架业宜和钢管租赁中心");
 
 function updateHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -58,6 +60,10 @@ function handleQuoteSubmit(event) {
 window.addEventListener("scroll", updateHeader, { passive: true });
 [couplers, pipes, days].forEach((field) => field.addEventListener("input", updateEstimate));
 form.addEventListener("submit", handleQuoteSubmit);
+
+if (amapNav && /Android/i.test(navigator.userAgent)) {
+  amapNav.href = `androidamap://keywordNavi?sourceApplication=yihe-rental&keyword=${amapKeyword}&style=2`;
+}
 
 updateHeader();
 updateEstimate();
