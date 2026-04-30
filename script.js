@@ -7,6 +7,11 @@ const form = document.querySelector("#quoteForm");
 const formResult = document.querySelector("#formResult");
 const amapNav = document.querySelector("#amapNav");
 const amapKeyword = encodeURIComponent("南京好装饰架业宜和钢管租赁中心");
+const amapDestination = {
+  id: "B0JBP966P2",
+  lat: "31.90037028355461",
+  lng: "118.68527725338933"
+};
 
 function updateHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -62,7 +67,7 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 form.addEventListener("submit", handleQuoteSubmit);
 
 if (amapNav && /Android/i.test(navigator.userAgent)) {
-  amapNav.href = `androidamap://keywordNavi?sourceApplication=yihe-rental&keyword=${amapKeyword}&style=2`;
+  amapNav.href = `androidamap://route/plan/?sourceApplication=yihe-rental&dev=0&t=0&did=${amapDestination.id}&dlat=${amapDestination.lat}&dlon=${amapDestination.lng}&dname=${amapKeyword}`;
 }
 
 updateHeader();
