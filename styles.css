@@ -496,18 +496,113 @@ address {
 }
 
 .map-preview {
+  position: relative;
   height: 260px;
   margin-top: 20px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #e8eee9;
+  background:
+    linear-gradient(135deg, rgba(31, 122, 99, 0.16), rgba(242, 183, 5, 0.12)),
+    #eef3ef;
 }
 
-.map-preview iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
+.map-preview::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(52, 75, 90, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 75, 90, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  content: "";
+}
+
+.map-road {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 0 0 1px rgba(52, 75, 90, 0.08);
+}
+
+.road-a {
+  top: 48px;
+  left: -32px;
+  width: 360px;
+  height: 26px;
+  transform: rotate(-12deg);
+}
+
+.road-b {
+  right: -54px;
+  bottom: 78px;
+  width: 380px;
+  height: 30px;
+  transform: rotate(22deg);
+}
+
+.road-c {
+  top: -48px;
+  left: 46%;
+  width: 28px;
+  height: 360px;
+  transform: rotate(12deg);
+}
+
+.road-d {
+  bottom: 36px;
+  left: 18px;
+  width: 240px;
+  height: 18px;
+  transform: rotate(5deg);
+}
+
+.map-pin {
+  position: absolute;
+  top: 88px;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  border: 5px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  background: var(--brick);
+  box-shadow: 0 12px 24px rgba(21, 33, 42, 0.24);
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.map-pin::after {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--white);
+  content: "";
+}
+
+.map-place {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  padding: 16px;
+  border: 1px solid rgba(52, 75, 90, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 34px rgba(21, 33, 42, 0.14);
+}
+
+.map-place strong,
+.map-place span {
+  display: block;
+}
+
+.map-place strong {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.map-place span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .contact-form {
