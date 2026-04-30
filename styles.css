@@ -496,18 +496,23 @@ address {
 }
 
 .map-preview {
-  position: relative;
-  height: 260px;
   margin-top: 20px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(31, 122, 99, 0.16), rgba(242, 183, 5, 0.12)),
-    #eef3ef;
+  background: #ffffff;
 }
 
-.map-preview::before {
+.map-canvas {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(31, 122, 99, 0.18), rgba(242, 183, 5, 0.12)),
+    #edf4ef;
+}
+
+.map-canvas::before {
   position: absolute;
   inset: 0;
   background-image:
@@ -519,13 +524,14 @@ address {
 
 .map-road {
   position: absolute;
+  z-index: 1;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 0 0 1px rgba(52, 75, 90, 0.08);
 }
 
 .road-a {
-  top: 48px;
+  top: 36px;
   left: -32px;
   width: 360px;
   height: 26px;
@@ -534,14 +540,14 @@ address {
 
 .road-b {
   right: -54px;
-  bottom: 78px;
+  bottom: 48px;
   width: 380px;
   height: 30px;
   transform: rotate(22deg);
 }
 
 .road-c {
-  top: -48px;
+  top: -70px;
   left: 46%;
   width: 28px;
   height: 360px;
@@ -549,7 +555,7 @@ address {
 }
 
 .road-d {
-  bottom: 36px;
+  bottom: 22px;
   left: 18px;
   width: 240px;
   height: 18px;
@@ -558,7 +564,8 @@ address {
 
 .map-pin {
   position: absolute;
-  top: 88px;
+  z-index: 2;
+  top: 72px;
   left: 50%;
   width: 34px;
   height: 34px;
@@ -578,15 +585,11 @@ address {
 }
 
 .map-place {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  left: 18px;
+  position: relative;
+  z-index: 1;
   padding: 16px;
-  border: 1px solid rgba(52, 75, 90, 0.12);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 14px 34px rgba(21, 33, 42, 0.14);
+  border-top: 1px solid var(--line);
+  background: #fbfcfa;
 }
 
 .map-place strong,
@@ -731,6 +734,10 @@ address {
   }
 
   .map-preview {
-    height: 220px;
+    min-height: 0;
+  }
+
+  .map-canvas {
+    min-height: 160px;
   }
 }
