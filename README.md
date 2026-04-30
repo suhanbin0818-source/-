@@ -1,4 +1,4 @@
-# 恒筑钢管脚手架扣件租赁网站
+# 宜和钢管脚手架扣件租赁网站
 
 这是一个静态展示网站，可直接部署到 GitHub Pages、Vercel、Netlify 或 Cloudflare Pages。
 
