@@ -15,30 +15,65 @@ Page({
     materials: "",
     periods: ["15天以内", "15-45天", "45-90天", "90天以上"],
     periodIndex: 1,
+    scaffoldKit: [
+      {
+        count: "2",
+        unit: "个",
+        name: "门架"
+      },
+      {
+        count: "2",
+        unit: "根",
+        name: "拉杆"
+      },
+      {
+        count: "1",
+        unit: "块",
+        name: "跳板"
+      }
+    ],
+    scaffoldTypes: [
+      {
+        name: "大架",
+        desc: "常用高度 1.7 米，适合外墙、店面、厂房等作业面。"
+      },
+      {
+        name: "小架",
+        desc: "常用高度 1 米，适合室内装修、低位施工和移动作业。"
+      }
+    ],
+    thicknesses: ["1.0mm", "1.2mm", "1.5mm", "2.0mm"],
+    accessories: ["拉杆", "跳板", "护栏", "三脚架", "轮子", "顶托"],
     products: [
       {
-        icon: "⌁",
-        name: "脚手架钢管",
-        desc: "48mm 镀锌钢管，1m 至 6m 多规格可配，出库前按长度分类扎捆。",
-        price: "按米/按根计租"
+        icon: "架",
+        name: "脚手架",
+        desc: "大架、小架可选，按常用整套方案配齐门架、拉杆和跳板。",
+        price: "租赁 / 销售"
       },
       {
-        icon: "✣",
-        name: "十字扣件",
-        desc: "用于立杆与横杆直角连接，数量大、周转快，支持整袋清点。",
-        price: "按只计租"
+        icon: "管",
+        name: "钢管",
+        desc: "多长度钢管可配，适合脚手架搭设、支撑、防护和临时围挡。",
+        price: "租赁 / 销售"
       },
       {
-        icon: "⟳",
-        name: "旋转扣件",
-        desc: "适合斜撑、剪刀撑和非直角连接，螺栓润滑检查后发货。",
-        price: "按只计租"
+        icon: "扣",
+        name: "扣件",
+        desc: "十字、旋转、对接等扣件可按项目用量配发。",
+        price: "租赁 / 销售"
       },
       {
-        icon: "▱",
-        name: "对接扣件",
-        desc: "用于钢管接长，搭配钢管规格发货，减少现场二次调配。",
-        price: "按只计租"
+        icon: "牛",
+        name: "地牛",
+        desc: "适合仓库、材料场和工地短距离搬运，提高装卸效率。",
+        price: "租赁 / 销售"
+      },
+      {
+        icon: "车",
+        name: "小推车",
+        desc: "适合材料转运、装修搬运和工地日常周转。",
+        price: "租赁 / 销售"
       }
     ],
     steps: [
@@ -122,24 +157,17 @@ Page({
   addWechat() {
     const project = this.data.project.trim();
     const area = this.data.area.trim();
-    const materials = this.data.materials.trim() || "材料清单待补充";
-
-    if (!project || !area) {
-      wx.showToast({
-        title: "请填写项目和区域",
-        icon: "none"
-      });
-      return;
-    }
+    const materials = this.data.materials.trim() || "需要脚手架整套方案";
 
     const quote = [
       `微信号：${this.data.wechatId}`,
       "",
       "钢管脚手架扣件租赁咨询",
-      `项目名称：${project}`,
-      `所在区域：${area}`,
+      `项目名称：${project || "未填写"}`,
+      `所在区域：${area || "未填写"}`,
       `预计租期：${this.data.periods[this.data.periodIndex]}`,
       `材料需求：${materials}`,
+      "推荐方案：2个门架 + 2根拉杆 + 1块跳板",
       `联系电话：${this.data.phone}`
     ].join("\n");
 

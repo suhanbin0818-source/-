@@ -165,9 +165,15 @@
   background: linear-gradient(135deg, rgba(242, 183, 5, 0.2), rgba(31, 122, 99, 0.12));
 }
 
+.solution {
+  background: #ffffff;
+}
+
 .calc-card,
 .contact-card,
 .form-card,
+.kit-card,
+.spec-card,
 .product-card,
 .step {
   border: 2rpx solid #d8e0e4;
@@ -178,9 +184,118 @@
 
 .calc-card,
 .contact-card,
-.form-card {
+.form-card,
+.kit-card,
+.spec-card {
   margin-top: 28rpx;
   padding: 28rpx;
+}
+
+.kit-card {
+  color: #ffffff;
+  border-color: #263b48;
+  background: #263b48;
+}
+
+.kit-title {
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.kit-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+  margin-top: 24rpx;
+}
+
+.kit-item {
+  min-height: 146rpx;
+  padding: 22rpx 10rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0.16);
+  border-radius: 10rpx;
+  background: rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.kit-count {
+  color: #f2b705;
+  font-size: 46rpx;
+  font-weight: 900;
+}
+
+.kit-name {
+  margin-top: 6rpx;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.kit-unit {
+  margin-top: 4rpx;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 22rpx;
+}
+
+.kit-note {
+  margin-top: 20rpx;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 18rpx;
+}
+
+.type-card {
+  min-height: 178rpx;
+  padding: 24rpx;
+  border: 2rpx solid #d8e0e4;
+  border-radius: 12rpx;
+  background: #fbfcfa;
+}
+
+.type-name,
+.spec-title {
+  color: #344b5a;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.type-desc {
+  margin-top: 12rpx;
+  color: #60707b;
+  font-size: 24rpx;
+  line-height: 1.55;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.tag {
+  padding: 12rpx 18rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  background: #1f7a63;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.tag.muted {
+  color: #344b5a;
+  border: 2rpx solid #d8e0e4;
+  background: #ffffff;
+}
+
+.spec-title.second {
+  margin-top: 26rpx;
 }
 
 .field {
@@ -372,7 +487,7 @@ textarea {
 }
 
 .product-card {
-  min-height: 310rpx;
+  min-height: 300rpx;
   padding: 26rpx;
 }
 
@@ -397,7 +512,7 @@ textarea {
 }
 
 .product-desc {
-  min-height: 130rpx;
+  min-height: 126rpx;
   color: #60707b;
   font-size: 24rpx;
   line-height: 1.55;

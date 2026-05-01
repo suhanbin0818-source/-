@@ -7,12 +7,12 @@
         <view class="brand-mark">YH</view>
         <view>
           <view class="brand-name">宜和租赁</view>
-          <view class="brand-sub">钢管 · 扣件 · 周转材料</view>
+          <view class="brand-sub">租赁 · 销售 · 配套方案</view>
         </view>
       </view>
       <view class="eyebrow hero-eyebrow">工地周转材料一站式租赁</view>
-      <view class="hero-title">钢管脚手架扣件租赁</view>
-      <view class="hero-copy">48mm 钢管、十字扣件、旋转扣件、对接扣件、顶托和脚手板常备库存，支持当天配车、按单清点、退场核算。</view>
+      <view class="hero-title">脚手架钢管扣件租售</view>
+      <view class="hero-copy">脚手架、钢管、扣件、地牛、小推车租赁销售。客户只要说需要脚手架，我们直接按可使用整套方案配齐。</view>
       <view class="hero-actions">
         <button class="btn primary" bindtap="scrollToQuote">获取报价</button>
         <button class="btn ghost" bindtap="scrollToProducts">查看品类</button>
@@ -32,6 +32,39 @@
     <view class="stat-item">
       <view class="stat-value">日租</view>
       <view class="stat-label">灵活结算</view>
+    </view>
+  </view>
+
+  <view class="section solution">
+    <view class="eyebrow">推荐整套方案</view>
+    <view class="section-title">客户不懂配件，也能直接用</view>
+    <view class="section-text">一般情况下，一套可直接使用的脚手架包含以下配置。实际数量可按施工高度、面积和现场条件调整。</view>
+    <view class="kit-card">
+      <view class="kit-title">一套脚手架基础配置</view>
+      <view class="kit-items">
+        <view class="kit-item" wx:for="{{scaffoldKit}}" wx:key="name">
+          <view class="kit-count">{{item.count}}</view>
+          <view class="kit-name">{{item.name}}</view>
+          <view class="kit-unit">{{item.unit}}</view>
+        </view>
+      </view>
+      <view class="kit-note">默认推荐：2 个门架 + 2 根拉杆 + 1 块跳板</view>
+    </view>
+    <view class="type-grid">
+      <view class="type-card" wx:for="{{scaffoldTypes}}" wx:key="name">
+        <view class="type-name">{{item.name}}</view>
+        <view class="type-desc">{{item.desc}}</view>
+      </view>
+    </view>
+    <view class="spec-card">
+      <view class="spec-title">可选壁厚</view>
+      <view class="tag-row">
+        <view class="tag" wx:for="{{thicknesses}}" wx:key="*this">{{item}}</view>
+      </view>
+      <view class="spec-title second">常见配件</view>
+      <view class="tag-row">
+        <view class="tag muted" wx:for="{{accessories}}" wx:key="*this">{{item}}</view>
+      </view>
     </view>
   </view>
 
@@ -58,8 +91,8 @@
 
   <view id="quote" class="section contact">
     <view class="eyebrow">快速询价</view>
-    <view class="section-title">把材料清单发来，当天给方案</view>
-    <view class="section-text">适合项目开工前备料、临时补货和退场回收对账。填写后可复制微信号，直接添加微信沟通。</view>
+    <view class="section-title">不用填完整，也能直接咨询</view>
+    <view class="section-text">客户不清楚规格也没关系，直接添加微信或打电话，说“需要脚手架”，我们按整套方案沟通。</view>
 
     <view class="contact-card">
       <view class="contact-line">服务热线：{{phone}}</view>
@@ -86,11 +119,11 @@
     <view class="form-card">
       <view class="field">
         <text class="label">项目名称</text>
-        <input placeholder="例如：滨河路商业楼外架" value="{{project}}" bindinput="onProjectInput"></input>
+        <input placeholder="可不填，例如：滨河路商业楼外架" value="{{project}}" bindinput="onProjectInput"></input>
       </view>
       <view class="field">
         <text class="label">所在区域</text>
-        <input placeholder="例如：雨花台区 / 城东工地" value="{{area}}" bindinput="onAreaInput"></input>
+        <input placeholder="可不填，例如：雨花台区 / 城东工地" value="{{area}}" bindinput="onAreaInput"></input>
       </view>
       <view class="field">
         <text class="label">预计租期</text>
@@ -100,7 +133,7 @@
       </view>
       <view class="field">
         <text class="label">材料需求</text>
-        <textarea placeholder="例如：6米钢管2000根，十字扣件8000只，旋转扣件1000只" value="{{materials}}" bindinput="onMaterialsInput"></textarea>
+        <textarea placeholder="可不填，例如：需要脚手架一套 / 需要地牛 / 需要小推车" value="{{materials}}" bindinput="onMaterialsInput"></textarea>
       </view>
       <button class="btn primary full" bindtap="addWechat">添加微信咨询</button>
       <view class="wechat-tip">微信号：{{wechatId}}</view>
@@ -108,9 +141,9 @@
   </view>
 
   <view id="products" class="section products">
-    <view class="eyebrow">常租材料</view>
-    <view class="section-title">覆盖脚手架搭设的基础件</view>
-    <view class="section-text">适合外墙架、满堂架、临边防护、模板支撑和临建围挡等场景。</view>
+    <view class="eyebrow">租赁 / 销售产品</view>
+    <view class="section-title">脚手架到搬运工具都能配</view>
+    <view class="section-text">覆盖施工搭设、材料周转、仓库搬运和日常工地使用。</view>
     <view class="product-grid">
       <view class="product-card" wx:for="{{products}}" wx:key="name">
         <view class="product-icon">{{item.icon}}</view>
