@@ -3,7 +3,7 @@ const app = getApp();
 Page({
   data: {
     phone: app.globalData.phone,
-    email: app.globalData.email,
+    wechatId: app.globalData.wechatId,
     placeName: app.globalData.placeName,
     address: app.globalData.address,
     couplers: 5000,
@@ -119,7 +119,7 @@ Page({
     });
   },
 
-  copyQuote() {
+  addWechat() {
     const project = this.data.project.trim();
     const area = this.data.area.trim();
     const materials = this.data.materials.trim() || "材料清单待补充";
@@ -133,12 +133,13 @@ Page({
     }
 
     const quote = [
-      "钢管脚手架扣件租赁询价",
+      `微信号：${this.data.wechatId}`,
+      "",
+      "钢管脚手架扣件租赁咨询",
       `项目名称：${project}`,
       `所在区域：${area}`,
       `预计租期：${this.data.periods[this.data.periodIndex]}`,
       `材料需求：${materials}`,
-      `联系邮箱：${this.data.email}`,
       `联系电话：${this.data.phone}`
     ].join("\n");
 
@@ -146,8 +147,8 @@ Page({
       data: quote,
       success: () => {
         wx.showModal({
-          title: "询价信息已复制",
-          content: `请粘贴发送到邮箱：${this.data.email}`,
+          title: "微信号已复制",
+          content: `已复制微信号和咨询信息。请打开微信，搜索 ${this.data.wechatId} 添加好友。`,
           showCancel: false
         });
       }

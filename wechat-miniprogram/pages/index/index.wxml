@@ -59,7 +59,7 @@
   <view id="quote" class="section contact">
     <view class="eyebrow">快速询价</view>
     <view class="section-title">把材料清单发来，当天给方案</view>
-    <view class="section-text">适合项目开工前备料、临时补货和退场回收对账。填写后可生成询价信息并复制。</view>
+    <view class="section-text">适合项目开工前备料、临时补货和退场回收对账。填写后可复制微信号，直接添加微信沟通。</view>
 
     <view class="contact-card">
       <view class="contact-line">服务热线：{{phone}}</view>
@@ -102,8 +102,8 @@
         <text class="label">材料需求</text>
         <textarea placeholder="例如：6米钢管2000根，十字扣件8000只，旋转扣件1000只" value="{{materials}}" bindinput="onMaterialsInput"></textarea>
       </view>
-      <button class="btn primary full" bindtap="copyQuote">生成并复制询价信息</button>
-      <view class="email-tip">收件邮箱：{{email}}</view>
+      <button class="btn primary full" bindtap="addWechat">添加微信咨询</button>
+      <view class="wechat-tip">微信号：{{wechatId}}</view>
     </view>
   </view>
 

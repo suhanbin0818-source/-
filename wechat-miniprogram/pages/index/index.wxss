@@ -353,7 +353,7 @@ textarea {
 }
 
 .map-address,
-.email-tip {
+.wechat-tip {
   margin-top: 8rpx;
   color: #60707b;
   font-size: 24rpx;
