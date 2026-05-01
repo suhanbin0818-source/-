@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "宜和租赁",
+    "navigationBarBackgroundColor": "#344b5a",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f7f4"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

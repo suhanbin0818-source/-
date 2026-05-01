@@ -1,0 +1,135 @@
+<view class="page">
+  <view class="hero">
+    <image class="hero-image" src="/assets/scaffold-yard.png" mode="aspectFill"></image>
+    <view class="hero-mask"></view>
+    <view class="hero-content">
+      <view class="brand-row">
+        <view class="brand-mark">YH</view>
+        <view>
+          <view class="brand-name">宜和租赁</view>
+          <view class="brand-sub">钢管 · 扣件 · 周转材料</view>
+        </view>
+      </view>
+      <view class="eyebrow hero-eyebrow">工地周转材料一站式租赁</view>
+      <view class="hero-title">钢管脚手架扣件租赁</view>
+      <view class="hero-copy">48mm 钢管、十字扣件、旋转扣件、对接扣件、顶托和脚手板常备库存，支持当天配车、按单清点、退场核算。</view>
+      <view class="hero-actions">
+        <button class="btn primary" bindtap="scrollToQuote">获取报价</button>
+        <button class="btn ghost" bindtap="scrollToProducts">查看品类</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="stats">
+    <view class="stat-item">
+      <view class="stat-value">30万+</view>
+      <view class="stat-label">扣件周转库存</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value">3小时</view>
+      <view class="stat-label">市区内响应</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value">日租</view>
+      <view class="stat-label">灵活结算</view>
+    </view>
+  </view>
+
+  <view class="section pricing">
+    <view class="eyebrow">计费方式</view>
+    <view class="section-title">租期越清楚，报价越准确</view>
+    <view class="section-text">页面内可先做粗略估算，最终报价会结合距离、规格、库存和现场装卸条件确认。</view>
+    <view class="calc-card">
+      <view class="field">
+        <text class="label">扣件数量</text>
+        <input value="{{couplers}}" type="number" bindinput="onCouplersInput"></input>
+      </view>
+      <view class="field">
+        <text class="label">钢管米数</text>
+        <input value="{{pipes}}" type="number" bindinput="onPipesInput"></input>
+      </view>
+      <view class="field">
+        <text class="label">租赁天数</text>
+        <input value="{{days}}" type="number" bindinput="onDaysInput"></input>
+      </view>
+      <view class="estimate">约 ¥{{estimate}}</view>
+    </view>
+  </view>
+
+  <view id="quote" class="section contact">
+    <view class="eyebrow">快速询价</view>
+    <view class="section-title">把材料清单发来，当天给方案</view>
+    <view class="section-text">适合项目开工前备料、临时补货和退场回收对账。填写后可生成询价信息并复制。</view>
+
+    <view class="contact-card">
+      <view class="contact-line">服务热线：{{phone}}</view>
+      <view class="contact-line">地址：{{placeName}}</view>
+      <view class="contact-address">{{address}}</view>
+      <view class="map-actions">
+        <button class="mini-btn" bindtap="callPhone">拨打电话</button>
+        <button class="mini-btn" bindtap="openMap">地图导航</button>
+      </view>
+      <view class="map-card">
+        <view class="map-canvas">
+          <view class="map-road road-a"></view>
+          <view class="map-road road-b"></view>
+          <view class="map-road road-c"></view>
+          <view class="map-pin"></view>
+        </view>
+        <view class="map-place">
+          <view class="map-name">{{placeName}}</view>
+          <view class="map-address">黑墩路与鄂儿岗路交叉口东南 500 米</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-card">
+      <view class="field">
+        <text class="label">项目名称</text>
+        <input placeholder="例如：滨河路商业楼外架" value="{{project}}" bindinput="onProjectInput"></input>
+      </view>
+      <view class="field">
+        <text class="label">所在区域</text>
+        <input placeholder="例如：雨花台区 / 城东工地" value="{{area}}" bindinput="onAreaInput"></input>
+      </view>
+      <view class="field">
+        <text class="label">预计租期</text>
+        <picker mode="selector" range="{{periods}}" value="{{periodIndex}}" bindchange="onPeriodChange">
+          <view class="picker-value">{{periods[periodIndex]}}</view>
+        </picker>
+      </view>
+      <view class="field">
+        <text class="label">材料需求</text>
+        <textarea placeholder="例如：6米钢管2000根，十字扣件8000只，旋转扣件1000只" value="{{materials}}" bindinput="onMaterialsInput"></textarea>
+      </view>
+      <button class="btn primary full" bindtap="copyQuote">生成并复制询价信息</button>
+      <view class="email-tip">收件邮箱：{{email}}</view>
+    </view>
+  </view>
+
+  <view id="products" class="section products">
+    <view class="eyebrow">常租材料</view>
+    <view class="section-title">覆盖脚手架搭设的基础件</view>
+    <view class="section-text">适合外墙架、满堂架、临边防护、模板支撑和临建围挡等场景。</view>
+    <view class="product-grid">
+      <view class="product-card" wx:for="{{products}}" wx:key="name">
+        <view class="product-icon">{{item.icon}}</view>
+        <view class="product-name">{{item.name}}</view>
+        <view class="product-desc">{{item.desc}}</view>
+        <view class="product-price">{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section service">
+    <view class="eyebrow">从下单到退场</view>
+    <view class="section-title">清楚、可核对、少扯皮</view>
+    <view class="steps">
+      <view class="step" wx:for="{{steps}}" wx:key="title">
+        <view class="step-no">{{item.no}}</view>
+        <view class="step-title">{{item.title}}</view>
+        <view class="step-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>
