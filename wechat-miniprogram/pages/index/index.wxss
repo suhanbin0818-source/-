@@ -170,6 +170,7 @@
 }
 
 .calc-card,
+.price-card,
 .contact-card,
 .form-card,
 .kit-card,
@@ -183,6 +184,7 @@
 }
 
 .calc-card,
+.price-card,
 .contact-card,
 .form-card,
 .kit-card,
@@ -344,6 +346,51 @@ textarea {
   background: #1f7a63;
   font-size: 40rpx;
   font-weight: 900;
+}
+
+.price-card {
+  padding-bottom: 10rpx;
+}
+
+.price-card + .price-card {
+  margin-top: 18rpx;
+}
+
+.price-title {
+  margin-bottom: 12rpx;
+  color: #344b5a;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+  padding: 20rpx 0;
+  border-top: 2rpx solid #edf1f2;
+}
+
+.price-name {
+  color: #15212a;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.price-note {
+  margin-top: 6rpx;
+  color: #60707b;
+  font-size: 23rpx;
+  line-height: 1.45;
+}
+
+.price-value {
+  flex: 0 0 auto;
+  color: #b74f35;
+  font-size: 30rpx;
+  font-weight: 900;
+  text-align: right;
 }
 
 .contact {

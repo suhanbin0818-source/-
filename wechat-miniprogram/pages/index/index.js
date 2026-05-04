@@ -44,6 +44,67 @@ Page({
     ],
     thicknesses: ["1.0mm", "1.2mm", "1.5mm", "2.0mm"],
     accessories: ["拉杆", "跳板", "护栏", "三脚架", "轮子", "顶托"],
+    rentalPrices: [
+      {
+        name: "小架租赁",
+        price: "¥1.5/套/天",
+        note: "按实际使用天数核算"
+      },
+      {
+        name: "大架租赁",
+        price: "¥2/套/天",
+        note: "20 天起租"
+      },
+      {
+        name: "3-5 套短租",
+        price: "¥260",
+        note: "含来回运费，具体按距离确认"
+      }
+    ],
+    salePrices: [
+      {
+        name: "大架基础套",
+        price: "¥145/套",
+        note: "含 1 张踏板，基础价不含运费"
+      },
+      {
+        name: "1.5mm 整套",
+        price: "¥179/套",
+        note: "约 70 斤，含 1 张踏板"
+      },
+      {
+        name: "2.0mm 整套",
+        price: "¥185/套",
+        note: "约 72 斤，含 1 张踏板"
+      }
+    ],
+    accessoryPrices: [
+      {
+        name: "轮子",
+        price: "¥28/个",
+        note: "新轮子"
+      },
+      {
+        name: "三脚架",
+        price: "¥36/套",
+        note: "按套销售"
+      },
+      {
+        name: "护栏",
+        price: "¥36/套",
+        note: "按套销售"
+      },
+      {
+        name: "1.5mm 踏板",
+        price: "¥58/张",
+        note: "约 18 斤"
+      },
+      {
+        name: "2.0mm 踏板",
+        price: "¥65/张",
+        note: "约 22 斤"
+      }
+    ],
     products: [
       {
         icon: "架",
@@ -168,6 +229,7 @@ Page({
       `预计租期：${this.data.periods[this.data.periodIndex]}`,
       `材料需求：${materials}`,
       "推荐方案：2个门架 + 2根拉杆 + 1块跳板",
+      "价格参考：小架¥1.5/套/天，大架¥2/套/天，3-5套短租¥260含来回运费",
       `联系电话：${this.data.phone}`
     ].join("\n");
 

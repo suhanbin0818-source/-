@@ -70,22 +70,37 @@
 
   <view class="section pricing">
     <view class="eyebrow">计费方式</view>
-    <view class="section-title">租期越清楚，报价越准确</view>
-    <view class="section-text">页面内可先做粗略估算，最终报价会结合距离、规格、库存和现场装卸条件确认。</view>
-    <view class="calc-card">
-      <view class="field">
-        <text class="label">扣件数量</text>
-        <input value="{{couplers}}" type="number" bindinput="onCouplersInput"></input>
+    <view class="section-title">价格先看清，方案再确认</view>
+    <view class="section-text">以下为常用基础价格，运费、数量和现场距离会影响最终报价，具体以微信或电话确认。</view>
+    <view class="price-card">
+      <view class="price-title">租赁价格</view>
+      <view class="price-row" wx:for="{{rentalPrices}}" wx:key="name">
+        <view>
+          <view class="price-name">{{item.name}}</view>
+          <view class="price-note">{{item.note}}</view>
+        </view>
+        <view class="price-value">{{item.price}}</view>
       </view>
-      <view class="field">
-        <text class="label">钢管米数</text>
-        <input value="{{pipes}}" type="number" bindinput="onPipesInput"></input>
+    </view>
+    <view class="price-card">
+      <view class="price-title">整套销售</view>
+      <view class="price-row" wx:for="{{salePrices}}" wx:key="name">
+        <view>
+          <view class="price-name">{{item.name}}</view>
+          <view class="price-note">{{item.note}}</view>
+        </view>
+        <view class="price-value">{{item.price}}</view>
       </view>
-      <view class="field">
-        <text class="label">租赁天数</text>
-        <input value="{{days}}" type="number" bindinput="onDaysInput"></input>
+    </view>
+    <view class="price-card">
+      <view class="price-title">配件 / 踏板</view>
+      <view class="price-row" wx:for="{{accessoryPrices}}" wx:key="name">
+        <view>
+          <view class="price-name">{{item.name}}</view>
+          <view class="price-note">{{item.note}}</view>
+        </view>
+        <view class="price-value">{{item.price}}</view>
       </view>
-      <view class="estimate">约 ¥{{estimate}}</view>
     </view>
   </view>
 
